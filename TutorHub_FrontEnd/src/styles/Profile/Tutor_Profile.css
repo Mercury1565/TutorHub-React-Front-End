@@ -1,0 +1,360 @@
+.profile-page-cont{
+    margin-top: 25vh;
+}
+
+.profile-card {
+    margin: 20px;
+    padding: 20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    background-color: #1C1A4A;
+    color: white;
+    padding: 50px;
+    border-radius: 20px;
+  }
+  
+  .profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .profile-profile-info {
+    width: 100%;
+  }
+  
+
+  .profile-contact-info{
+    width: 100%;
+  }
+  
+  .profile-contact-info p {
+    width: 100%;
+  }
+  
+  .icon {
+    margin-right: 10px;
+  }
+  
+  .bio {
+    margin-top: 20px;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .social-icons a{
+    color: white;
+  }
+  
+  .description-container-card {
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 30px;
+    margin-top: 30px;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+
+  }
+  
+  .description-container-card h3 {
+    font-weight: 500;
+    font-size: 24px;
+  }
+
+  .description-container-card p{
+    color: #6D6C80;
+  }
+
+  .profile-edit-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    margin-left: 200px;
+    margin-right: 200px;
+    padding-left: 30px;
+    align-items: cener;
+  }
+
+  .profile-edit-container h2{
+    font-weight: 500;
+    font-size: 30px;
+  }
+  
+  .edit-profile-img-cont{
+    height: 20px;
+    width: 20px;
+    margin-left: 10px;
+  }
+
+    .edit-profile-img-cont img{
+        height: 100%;
+        width: 100%;
+    }
+
+    .edit-profile-but{
+        padding-left: 9px;
+        padding-right: 9px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 170px;
+        display: flex;
+        background-color: #FFC224;
+        color: black;
+        border:none;
+        border-radius: 10px;
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    .edit-profile-but:hover{
+        background-color: #ffb700;
+        color: black;
+    }
+
+
+/* Profile Edit */
+.login_container{
+    width: 100%;
+    background-color: #fff;
+    margin-top: 27vh;
+    margin-bottom: 50px;
+}
+
+.login_container p{
+    font-weight: 500;
+}
+
+.student{
+    font-size: 40px;
+    font-weight: 700;
+}
+.links{
+    display: flex;
+    font-size: 16px;
+    gap: 3px;
+}
+.login{
+    color: #5751E1;
+}
+.middle{
+    width: 690px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
+}
+.middle > div{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div .welcome{
+    padding-top: 40px;
+    font-size: 36px;
+    font-weight: 700;
+}
+.text{
+    padding-bottom: 30px;
+    padding-top: 15px;
+    font-size: 16px;
+    font-style: italic;
+    
+}
+.continue-with{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    gap: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.google-button{
+    width: 500px;
+    height: 54px;
+    border-radius: 20px;
+    background-color: white;
+    color: rgb(56, 55, 55);
+    border: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-container{
+    margin-right: 20px;
+    height: 45px;
+    width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-container img{
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+}
+
+.google-button:hover{
+    cursor: pointer;
+    background-color: #eeeeee;
+}
+
+.or{
+    display: flex;
+    margin-bottom: 15px;
+    text-align: center;
+    align-items: center;
+    height: 10px;
+}
+.or div{
+    width: 95%;
+    height: 1px;
+    background-color: #6D6C80;
+}
+.login-input{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    width: 100%;
+    font-weight: 550;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    border: none;
+}
+.login-input input{
+    border-radius: 10px;
+    width: 95%;
+    background-color: white;
+    padding: 15px;
+    font-size: 16px; 
+}
+
+.remember{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.forgot{
+    text-decoration: none;
+    
+}
+
+.signin{
+    margin: 20px;
+    width: auto;
+    height: 54px;
+    border-radius: 20px;
+    background-color: #FFC224;
+    font-size: 16px;
+}
+
+.signin:hover{
+    cursor: pointer;
+    background-color: #ffd651;
+}
+
+.signup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.signup a{
+    text-decoration: none;
+}
+
+.new-class{
+    display: flex;
+    justify-content: center;    
+    align-items: center;
+}
+
+.new-class p{
+    font-weight: 200;
+}
+
+.user-type{
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+}
+
+.user-type input{
+    cursor: pointer;
+}
+
+.signup-text-cont{
+    display: flex;
+    justify-content: center;
+}
+
+.signup-text-cont h2{
+    font-weight: 400;
+    font-size: 30px;
+}
+
+
+
+.profile-edit-socials-cont{
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5px 20px 20px 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.program-add-input{
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+
+.upload-box {
+    border: 3px dashed #ddd;
+    height: 100px;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .upload-box p{
+    color: #a6a5a5;
+    padding: 0px;
+  }
+  
+  /* .upload-img{
+    margin: 20px;
+  } */
+  
+  .upload-img p{
+    margin-top: -3px;
+  }

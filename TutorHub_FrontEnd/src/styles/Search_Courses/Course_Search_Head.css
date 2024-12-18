@@ -1,0 +1,58 @@
+
+.header-banner {
+  background-image: url("../../assets/Course_Search/searchHead.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0px;
+  height: 140px;
+  width: auto;
+}
+  
+  .header-content {
+    max-width: auto;
+    margin: 0 200px;
+    padding: 20px;
+    padding-top: 40px;
+  }
+  
+  .header-content h1 {
+    color: #161439;
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0;
+  }
+  
+  .breadcrumb {
+    margin-top: 10px;
+  }
+  
+  .breadcrumb a {
+    color: #1C1A4A;
+    text-decoration: none;
+  }
+  
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Decorative elements (optional, based on your design) */
+  .header-banner::before, .header-banner::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('path/to/decorative-element.svg') no-repeat center center;
+    background-size: contain;
+  }
+  
+  .header-banner::before {
+    top: 20px;
+    left: 20px;
+  }
+  
+  .header-banner::after {
+    bottom: 20px;
+    right: 20px;
+  }
+  

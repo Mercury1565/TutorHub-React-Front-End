@@ -1,0 +1,50 @@
+.filter-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 310px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+  }
+
+  .filter-grade-and-hour {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+  
+.filter-section h3 {
+    margin-top: 0px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #161439;
+  }
+  
+.filter-item {
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 300;
+    color: #6D6C80;
+  }
+  
+.filter-item input {
+    margin-right: 5px;
+  }
+  
+.show-more-button {
+    background: none;
+    border: none;
+    color: #5751E1;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+  }
+  
+.show-more-button:hover {
+    text-decoration: none;
+    color: #151358;
+  }
+  

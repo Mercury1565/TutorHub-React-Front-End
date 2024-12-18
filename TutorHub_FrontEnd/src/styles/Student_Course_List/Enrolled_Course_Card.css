@@ -1,0 +1,115 @@
+.card {
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    margin: 25px;
+  }
+  
+  .card-header {
+    border: 0.5px solid #e0e0e0;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 278px;
+    height: 190px;
+  }
+  
+  .card-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-header {
+    display: flex;
+    margin-top: 10px;
+  }
+
+  .card-body {
+    padding: 0px 25px ;
+  }
+
+  .card-badge{
+    display: flex;
+    padding: 0px 25px 0px 25px;
+    justify-content: space-between;
+
+  }
+
+  .card-badge .category {
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    padding: 5px 10px;
+    display: inline-block;
+    font-size: 14px;
+  }
+
+  .card-badge .rat{
+    display: flex;
+    align-items: row;
+    justify-content: space-between;
+    color: #7F7E97;
+    font-size: 14px;
+  }
+
+  .rat p{
+    text-align:center;
+  }
+
+  .starContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-body .rating {
+    color: #ffc107;
+    font-size: 14px;
+  }
+
+  
+  .card-body .title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .card-body .instructor {
+    color: #757575;
+    font-size: 15px;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 25px;
+  }
+  
+  .card-footer .price {
+    color: #3f51b5;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .card-footer .learn-button {
+    background-color: #FFC224;
+    border-radius: 20px;
+    padding: 10px 25px;
+    color: black;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .card-footer .enroll-learn:hover {
+    background-color: #FFC224;
+  }
+
+.course-card{
+  margin: 10px;
+}
+  

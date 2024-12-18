@@ -1,0 +1,93 @@
+.add-container{
+    margin-top: 20vh;
+}
+
+.add-program-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.add-program-container h2 {
+    margin-bottom: 40px;
+    font-weight: 300;
+    font-size: 40px;
+}
+
+.add-program-container input[type="text"],
+.add-program-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.add-program-container input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.add-program-container button {
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #5751E1;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-program-container button:hover {
+    background-color: #6c66df;
+
+}
+
+.program-add-input{
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.add-grade {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.upload-box {
+    border: 3px dashed #ddd;
+    height: 100px;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .upload-box p{
+    color: #a6a5a5;
+    padding: 0px;
+  }
+  
+  /* .upload-img{
+    margin: 20px;
+  } */
+  
+  .upload-img p{
+    margin-top: -3px;
+  }
+  

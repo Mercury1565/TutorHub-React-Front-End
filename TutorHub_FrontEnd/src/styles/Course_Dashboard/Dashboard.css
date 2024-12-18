@@ -1,0 +1,246 @@
+/* START OF DASHBOARD */
+.course-page-container{
+    margin-top: 20vh;
+}
+
+.course-page-dashboard {
+    display: flex;
+  }
+  
+  .course-page-sidebar {
+    margin: 40px;
+    width: 200px;
+    padding-right: 50px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ddd;
+  }
+  
+  .course-page-sidebar-item {
+    background-color: #E6E9EF;
+    color: #6D6C80;
+    font-weight: 500;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .course-page-sidebar-item:hover {
+    background-color: #c8c9c9;
+  }
+  
+  .course-page-sidebar-item.active{
+    background-color: #5751E1;
+    color: #FFFFFF;
+  }
+  
+  .course-page-sidebar-item .notification {
+    background-color: #f00;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px 10px;
+    margin-left: auto;
+  }
+/* END OF DASHBOARD */
+
+/* START OF COMMON FOR BODY */
+.course-page-main-content {
+    padding: 20px;
+    width: 40%;
+  }
+/* END OF COMMON FOR BODY */
+
+/* START OF GREETING */
+  .course-page-main-content h1{
+    color: #9d9d9d;
+    font-weight: 400;
+    font-size: 50px;
+  }
+  
+  .greeting-program-info {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+
+  .greeting-text{
+    margin-left: 20px;
+  }
+
+  .greeting-text p{
+    font-size: 16px;
+  }
+
+  .greeting-program-info h2{
+    color: #161439;
+    font-weight: 400;
+  }
+  
+  .greeting-program-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .greeting-program-rating .fa-star {
+    color: #ffd700;
+  }
+  
+  .greeting-next-session {
+    margin-left: -20px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .calendar-icon-container{
+    margin: 30px;
+  }
+
+  .greeting-program-info h2{
+    color: #161439;
+    font-weight: 400;
+  }
+/* END OF GREETING */
+
+/* START OF RESOURCES AND ASSESMENTS */
+
+.resources-content-box {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 20px;
+  }
+
+.resources-content-box h2{
+    color: #161439;
+    font-weight: 300;
+}
+
+ul{
+    list-style-type:circle;
+}
+
+  .resource-list-item{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .resource-list-item img:hover{
+    cursor: pointer;
+  }
+  
+
+  .resource-list-item p{
+    color: #6d6c80;
+  }
+
+/* END OF RESOURCES AND ASSESMENTS */
+
+/* START OF REVIEW */
+
+.course-review-container{
+    display: flex;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-bottom: 1px solid #ddd;
+}
+
+.review-nav-buttons{
+    width: 17%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .review-nav-but{
+    cursor: pointer;
+  }
+
+  .review-rate-star{
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+  }
+
+  .rating-radio {
+    display: none;
+}
+
+  .submit-review-container h2{
+    font-weight: 200;
+    color: #373642;
+  }
+
+  .review-textfield{
+    width: 80%;
+    height: 100px;
+    border: 1px solid #cabdbd;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 200;
+  }
+
+  .review-but-div{
+    width: 85%;
+    display: flex;
+    justify-content: right;
+  }
+
+  .review-submit-but{
+    background-color: #FFC224;
+    color: #6D6C80;
+    font-weight:350;
+    font-size: 1rem;
+    padding: 10px;
+    margin: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+/* END OF REVIEW */
+
+
+/* START OF CONTACT TUTOR */
+
+.send-message-container{
+    border-bottom: 1px solid #ddd;
+}
+.send-message-container h2{
+    font-weight: 200;
+    color: #373642;
+  }
+
+  .send-but-div{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+  }
+
+.socials-items{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.socials-items-img-cont{
+    height: 40px;
+    width: 40px;
+    border-right: 1px solid #ddd;
+    margin: 8px;
+}
+/* END OF CONTACT TUTOR */

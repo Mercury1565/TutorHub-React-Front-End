@@ -1,0 +1,36 @@
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: 400px;
+  }
+  
+  
+  .search-input {
+    border: none;
+    outline: none;
+    flex: 1;
+    margin-left: 10px;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 30%;
+  }
+  
+  .profile:hover {
+    background-color: #8c89be;
+  }
+
+  .search-icon{
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+  }
+  

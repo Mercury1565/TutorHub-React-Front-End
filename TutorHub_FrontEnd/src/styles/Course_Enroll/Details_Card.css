@@ -1,0 +1,101 @@
+.program-details-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+  }
+  
+  .monthly-fee {
+    background-color: #5751E1;
+    color: white;
+    text-align: left;
+    align-items: left;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .monthly-fee h4 {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .monthly-fee h2 {
+    margin: 5px 0 0;
+    font-size: 24px;
+  }
+  
+  .program-details h3 {
+    color: #161439;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 10px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .details-icon-container{
+    color: white;
+    padding: 3px;
+    margin-right: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 14px;
+    height: 14px;
+  }
+  .icon {
+    width: 100%;width: 14px;
+    height: 14px;
+    justify-content: center;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .details-text-container{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+  }
+
+  .detailP{
+    color: #1C1A4A;
+  }
+
+  .detailP2{
+    color: #7F7E97;
+  }
+  
+  .share-section {
+    border-radius: 5%;
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    background-color: #E6E9EF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .share-section h3 {
+    font-size: 18px;
+  }
+  
+  .details-icons .icon {
+    color: blue;
+    /* display: flex; */
+    /* justify-content: space-around; */
+  }
+  
+
+  
