@@ -1,29 +1,14 @@
-import { useState, useEffect } from 'react';
 import { starIcon, calendarIcon } from '../../assets/assets';
 
-function Greeting({programId}){
-    const [programName, setProgramName] = useState("Program Name");
-    const [enrolled, setEnrolled] = useState(0);
-
-    const [title , setTitle] = useState("Title");
-    const [rating, setRating] = useState(0);
-
-
-    //   useEffect(() => {
-    //     fetch(`API ENDPOINT TO GET COURSE INFO/${programId}`)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //         setRating(data.rating);
-    //         setTitle(data.title);
-    //         setTutorName(data.tutorName);
-    //         setProgramName(data.programName); 
-    //         setEnrolled(data.enrolled   
-    //     });
-    // }, [programId]);
+function Greeting({program}){
+    const programName = program.title;
+    const enrolled = program.seatsRemaining;
+    const rating = program.rate;
+    const tutorName = program.tutorName;
 
     return(
         <div className="course-page-main-content">
-            <h1>Hello, Tutor</h1>
+            <h1>Hello, {tutorName}</h1>
             <div className="greeting-program-info">
             <div className='greeting-text'>
                 <h2>{programName}</h2>

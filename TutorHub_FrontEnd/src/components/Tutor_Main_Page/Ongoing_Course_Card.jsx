@@ -35,8 +35,8 @@ function Ongoing_Course_Card({program}){
 
     const navigate = useNavigate();
 
-    function handleLearn(programId){
-      navigate('/tutor/dashboard', { state: { programId } });
+    function handleLearn(program){
+      navigate('/tutor/dashboard', { state: { program } });
     };
 
     return (
@@ -65,7 +65,7 @@ function Ongoing_Course_Card({program}){
           <div className="card-footer">
             <button 
                 className="learn-button" 
-                onClick={() => {handleLearn(programId)}}
+                onClick={() => {handleLearn(program)}}
                 >
                 Start Teaching
             </button>
