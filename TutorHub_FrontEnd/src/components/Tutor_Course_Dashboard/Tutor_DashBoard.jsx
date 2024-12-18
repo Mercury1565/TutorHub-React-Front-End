@@ -63,9 +63,9 @@ function Tutor_DashBoard(){
           </div>
   
           {activeButton === "button1" && <Tutor_Greeting program={program}/>}
-          {activeButton === "button2" && <Post_Resources program={program}/>}
-          {activeButton === "button3" && <Post_Assesments program={program}/>}
-          {activeButton === "button4" && <See_Review program={program}/>}
+          {activeButton === "button2" && <Post_Resources programId={program.id}/>}
+          {activeButton === "button3" && <Post_Assesments programId={program.id}/>}
+          {activeButton === "button4" && <See_Review programId={program.id}/>}
           {activeButton === "button5" && <Message/>}
           
         </div>
