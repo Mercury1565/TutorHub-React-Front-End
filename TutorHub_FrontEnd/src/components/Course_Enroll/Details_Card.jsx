@@ -48,26 +48,14 @@ function Details_Card() {
           </div>
         </div>
 
-        <div className="detail-item">
+        {/* <div className="detail-item">
           <div className="details-icon-container">
             <img className="icon" src={evaluationIcon} />
           </div>
           <div className="details-text-container">
             <p className="detailP">Evaluations</p>
-            <p className="detailP2">
-              {programId && programId.evaluation ? programId.evaluation : 'No'}
-            </p>
           </div>
-        </div>
-        <div className="detail-item">
-          <div className="details-icon-container">
-            <img className="icon" src={enrolledIcon} />
-          </div>
-          <div className="details-text-container">
-            <p className="detailP">Enrolled</p>
-            <p className="detailP2">{programId.enrolled.length}</p>
-          </div>
-        </div>
+        </div> */}
         <div className="detail-item">
           <div className="details-icon-container">
             <img className="icon" src={seatsIcon} />

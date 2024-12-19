@@ -14,6 +14,12 @@ function Search_Bar({ setSearchTitle }) {
     setSearchTitle(inputValue);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="search-bar">
       <input
@@ -21,6 +27,7 @@ function Search_Bar({ setSearchTitle }) {
         className="search-input"
         placeholder="Search For Tutorial..."
         onChange={handleInputChange}
+        onKeyPress={handleKeyPress}
       />
       <div className="profile">
         <img

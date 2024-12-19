@@ -12,11 +12,6 @@ import Search_Bar from './Search_Bar';
 const baseUrl = 'http://localhost:3000/course/filter?';
 
 function Course_Search_Main() {
-  const [selectedPrograms, setSelectedPrograms] = useState([1, 3, 4, 5, 6, 7]);
-
-  const [selectedSubjects, setSelectedSubjects] = useState([]);
-  const [selectedLanguages, setSelectedLanguages] = useState([]);
-
   const [selectedRatingChange, setSelectedRatingChange] = useState();
   const [durationPerDayChange, setDurationPerDayChange] = useState();
   const [gradeLevelChange, setGradeLevelChange] = useState(1);
@@ -42,23 +37,27 @@ function Course_Search_Main() {
         url += `&rate=${selectedRatingChange}`;
       }
 
-      const response = await axios.get(url, {});
-
-      console.log(response.data);
+      const response = await axios.get(
+        url, 
+        {
+          headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        }
+      );
 
       const mappedData = response.data.map((course) => ({
-        programId: course._id,
+        programId: course.id,
         subject: course.subject,
         title: course.title,
         review: course.rate,
         tutorName: course.tutorName,
         price: course.fee,
-        evaluation: course.evaluation,
         seats: course.seatsRemaining,
         resource: course.resource,
         durationPerDay: course.durationPerDay,
         grade: course.grade,
-        enrolled: course.enrolledStudents,
+        // enrolled: course.enrolledStudents,
         tutorId: course.tutorId,
         image: course.image,
       }));

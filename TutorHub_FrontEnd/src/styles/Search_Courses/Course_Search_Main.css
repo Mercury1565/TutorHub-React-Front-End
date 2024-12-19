@@ -5,7 +5,7 @@
 .course-search-body{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: left;
     align-items: flex-start;
     margin-top: 30px;    
 }
@@ -25,8 +25,8 @@
 }
 
 .course-card {
-    width: 300px;
+    width: 290px;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-right: 10px;
+    margin-right: 20px;
 }

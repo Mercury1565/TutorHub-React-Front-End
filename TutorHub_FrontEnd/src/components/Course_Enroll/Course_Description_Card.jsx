@@ -19,7 +19,7 @@ const baseUrl = 'http://localhost:3000/course/';
 
 function Course_Description_Card() {
   const location = useLocation();
-  const programId = location.state?.programId;
+  const program = location.state?.programId;
 
   const [activeButton, setActiveButton] = useState('button1');
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
@@ -28,14 +28,14 @@ function Course_Description_Card() {
   useEffect(() => {
     const fetchCourseReviews = async () => {
       try {
-        const url = `${baseUrl}${programId.programId}/comments`;
+        const url = `${baseUrl}${program.program}/comments`;
         const response = await axios.get(url);
 
         setReviewId(response.data);
       } catch (e) {}
     };
     fetchCourseReviews();
-  }, [programId]);
+  }, [program]);
 
   const handleClick = (buttonId) => {
     setActiveButton(buttonId);
@@ -53,8 +53,6 @@ function Course_Description_Card() {
     );
   };
 
-  console.log('programid')
-  console.log(programId)
 
   return (
     <div className="description-page-total">
@@ -62,24 +60,24 @@ function Course_Description_Card() {
       <div className="description-page">
         <div className="description-card">
           <div className="description-card-header">
-            <img src={programId.image} alt="Instructor" />
+            <img src={program.image} alt="Instructor" />
           </div>
 
           <div className="description-card-badge">
-            <p className="description-category">{programId.subject}</p>
+            <p className="description-category">{program.subject}</p>
 
             <div className="description-rat">
               <div className="description-starContainer">
                 <img src={Star} alt="star" />
-                <p>{programId.rating} Reviews</p>
+                <p>{program.rate} Reviews</p>
               </div>
             </div>
           </div>
 
           <div className="description-card-body">
             <span className="description-rating"></span>
-            <h3 className="description-title">{programId.title}</h3>
-            <p className="description-instructor">By {programId.tutorName}</p>
+            <h3 className="description-title">{program.title}</h3>
+            <p className="description-instructor">By {program.tutorName}</p>
           </div>
 
           <div className="description-card-footer">
@@ -121,10 +119,10 @@ function Course_Description_Card() {
             </button>
           </div>
           {activeButton === 'button1' && (
-            <OverView_Card programId={programId} />
+            <OverView_Card program={program} />
           )}
           {activeButton === 'button2' && (
-            <About_Tutor_Card programId={programId} />
+            <About_Tutor_Card program={program} />
           )}
           {activeButton === 'button3' && (
             <div className="rating-div">

@@ -93,7 +93,6 @@ function Assesments({programId}){
                     }
                 );
                 const data = response.data;
-                console.log(data)
                 setExams(data.exams);
                 setAssignments(data.assignments);
             } catch (error) {
