@@ -1,8 +1,15 @@
 import { useState } from "react";
+import axios from "axios";
 import { telebirr,cbe,mpesa,awash,payment,upload } from "../../assets/assets";
+import { useLocation } from "react-router-dom";
 
 function Payment_Card(){
     const [uploadedFile, setUploadedFile] = useState(null);
+
+    const location = useLocation();
+    const programId = location.state?.programId;
+    const baseUrl = 'http://localhost:3000/course/handle_payment';
+
 
     const handleFileUpload = (event) => {
         setUploadedFile(event.target.files[0]);
@@ -15,20 +22,18 @@ function Payment_Card(){
         }
     
         const formData = new FormData();
-        formData.append('file', uploadedFile);
+        formData.append('receiptFile', uploadedFile);
+        formData.append('courseId', programId.programId)
     
         try {
-            const response = await fetch('API ENDPOINT FOR FILE UPLOAD', {
-                method: 'POST',
-                body: formData,
+            const response = await axios.post(baseUrl, formData, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type': 'multipart/form-data'
+                }
             });
     
-            if (!response.ok) {
-                throw new Error('Network response error');
-            }
-    
-            const data = await response.json();
-            console.log(data);
+            console.log(response.data);
         } 
         
         catch (error) {
