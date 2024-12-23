@@ -19,28 +19,20 @@ export const Signup = ({ setUserUserType }) => {
     setUserType(event.target.value);
   };
 
-  const handleSignUp = async (setUserType) => {
+  const handleSignUp = async () => {
     console.log({ email, password, firstName, lastName, userName });
     try {
       const response = await axios.post(
         `http://localhost:3000/user/create-Account`,
         {
-          email,
-          password,
           firstName,
           lastName,
           userName,
+          email,
+          password,
         }
       );
       console.log(response.data);
-      if (userType === 'student') {
-        setUserUserType('student');
-        navigate_to('/student');
-      } else if (userType === 'tutor') {
-        setUserUserType('tutor');
-        navigate_to('/tutor');
-      }
-      console.log('hell');
     } catch (error) {
       console.error('Error during sign-up:', error);
     }

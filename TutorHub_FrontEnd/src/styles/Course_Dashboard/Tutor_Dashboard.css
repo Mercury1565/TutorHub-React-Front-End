@@ -335,3 +335,53 @@ ul{
 }
 
 /* END OF CONTACT TUTOR */
+/* START OF APPROVE REQUEST */
+
+.approve-request-container {
+    margin: 50px;
+}
+
+.approve-request-button  {
+    width: 100px;
+    height: 40px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reject-request-button  {
+    width: 100px;
+    height: 40px;
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.approve-request-button:hover {
+  background-color: #45a049;
+  cursor: pointer;
+}
+
+.reject-request-button:hover {
+  background-color: #ff3333;
+  cursor: pointer;
+}
+
+.approve-button-container {
+    display: flex;
+    flex-direction: row;
+}

@@ -14,6 +14,7 @@ function Tutor_Course_Add() {
     const [fee, setFee] = useState('')
     const [durationPerDay, setDurationPerDay] = useState('')
     const [seatsRemaining, setSeatsRemaining] = useState('')
+    const [paymentMethods, setPaymentMethods] = useState([])
 
     const handleAddProgram = async (event) => {
         event.preventDefault()
@@ -30,6 +31,7 @@ function Tutor_Course_Add() {
                     fee,
                     durationPerDay,
                     seatsRemaining,
+                    paymentMethods,
                 },
                 {
                     headers: {
@@ -41,16 +43,12 @@ function Tutor_Course_Add() {
                 }
             )
 
-            console.log(response.data)
-
             setTitle('')
             setGrade('')
             setSubject('')
-            setIsPaid(false)
             setFee('')
             setImage('')
             setDescription('')
-            setBio('')
             setDurationPerDay('')
             setSeatsRemaining('')
         } catch (error) {
@@ -160,6 +158,32 @@ function Tutor_Course_Add() {
                                 onChange={(e) => setSeatsRemaining(e.target.value)}
                                 placeholder="Number of Seats"
                             />
+                        </div>
+                    </div>
+
+                    <div>
+                        <div className="program-add-input">
+                            <p>Payment Methods</p>
+                            {['telebirr', 'safaricom', 'cbe', 'awash'].map((method) => (
+                                <div key={method}>
+                                    <label htmlFor={method}>{method}</label>
+                                    <input
+                                        type="text"
+                                        placeholder={`${method} account number`}
+                                        onChange={(e) => {
+                                            const newPaymentMethods = paymentMethods.map((paymentMethod) => 
+                                                paymentMethod.method === method 
+                                                    ? { ...paymentMethod, number: e.target.value } 
+                                                    : paymentMethod
+                                            );
+                                            if (!newPaymentMethods.some(paymentMethod => paymentMethod.method === method)) {
+                                                newPaymentMethods.push({ method: method, number: e.target.value });
+                                            }
+                                            setPaymentMethods(newPaymentMethods);
+                                        }}
+                                    />
+                                </div>
+                            ))}
                         </div>
                     </div>
 
