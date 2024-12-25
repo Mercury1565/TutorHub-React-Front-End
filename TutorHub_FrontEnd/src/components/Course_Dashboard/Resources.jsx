@@ -2,20 +2,10 @@ import { useState, useEffect } from 'react';
 import { downloadIcon } from "../../assets/assets";
 
 function Resources({programId}){
-    const [textBooks, setTextBooks] = useState([{name: "Sample", url:'www.google.com'}]);
-    const [sampleExams, setSampleExams] = useState([{name: "Sample", url:'www.google.com'}]);
-    const [videoResources, setVideoResources] = useState([{name: "Sample", url:'www.google.com'}]);
-
-    //   useEffect(() => {
-    //     fetch(`API ENDPOINT TO GET COURSE INFO/${programId}`)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //        setTextBooks(data.textBooks);
-    //        setSampleExams(data.sampleExams);
-    //        setVideoResources(data.videoResources);
-    //     });
-    // }, [programId]);
-
+    const textBooks = programId.resources.book;
+    const sampleExams = programId.resources.sampleExam;
+    const videoResources = programId.resources.video;
+    
     return(
         <div className="course-page-main-content">
             <div className="resources-content-box">
@@ -24,7 +14,7 @@ function Resources({programId}){
                     {textBooks.map((textBook, index) => (
                         <li key={index}>
                             <div className="resource-list-item">
-                                <p>{textBook.name}</p>
+                                <p>{textBook.title}</p>
                                 <img src={downloadIcon} onClick={() => window.open(`https://${textBook.url}`, '_blank')} />
                             </div>    
                         </li>
@@ -38,7 +28,7 @@ function Resources({programId}){
                     {sampleExams.map((sampleExam, index) => (
                         <li key={index}>
                             <div className="resource-list-item">
-                                <p>{sampleExam.name}</p>
+                                <p>{sampleExam.title}</p>
                                 <img src={downloadIcon} onClick={() => window.open(`https://${sampleExam.url}`, '_blank')} />
                             </div>    
                         </li>
@@ -52,7 +42,7 @@ function Resources({programId}){
                     {videoResources.map((video, index) => (
                         <li key={index}>
                             <div className="resource-list-item">
-                                <p>{video.name}</p>
+                                <p>{video.title}</p>
                                 <img src={downloadIcon} onClick={() => window.open(`https://${video.url}`, '_blank')} />
                             </div>    
                         </li>

@@ -1,18 +1,33 @@
 import { useState, useEffect } from "react";
 import { linkIcon } from "../../assets/assets";
+import axios from "axios";
 
-function Assesments(){
-    const [exams, setExams] = useState([{name: "Sample", url:'www.google.com'}]);
-    const [assignments, setAssignments] = useState([{name: "Sample", url:'www.google.com'}]);
+function Assesments({ programId }){
+    const [exams, setExams] = useState([]);
+    const [assignments, setAssignments] = useState([]);
+    
+    useEffect(() => {
+        const fetchResources = async () => {
+            try {
+                const response = await axios.get(
+                    `http://localhost:3000/assessment/${programId.id}`, 
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('token')}`,
+                        },
+                    }
+                );
+                const data = response.data;
+                setExams(data.exams);
+                setAssignments(data.assignments);
+            } catch (error) {
+                console.error("There was an error fetching the assessments!", error);
+            }
+        };
 
-    //   useEffect(() => {
-    //     fetch(`API ENDPOINT TO GET COURSE INFO/${programId}`)
-    //     .then(response => response.json())
-    //     .then(data => {
-    //        setExams(data.exams);
-    //        setAssignments(data.assignments);
-    //     });
-    // }, [programId]);
+        fetchResources();
+    }, []);
+
 
     return(
         <div className="course-page-main-content">
@@ -22,7 +37,7 @@ function Assesments(){
                     {exams.map((exam, index) => (
                         <li key={index}>
                             <div className="resource-list-item">
-                                <p>{exam.name}</p>
+                                <p>{exam.title}</p>
                                 <img src={linkIcon} onClick={() => window.open(`https://${exam.url}`, '_blank')} />
                             </div>    
                         </li>
@@ -36,7 +51,7 @@ function Assesments(){
                     {assignments.map((assignment, index) => (
                         <li key={index}>
                             <div className="resource-list-item">
-                                <p>{assignment.name}</p>
+                                <p>{assignment.title}</p>
                                 <img src={linkIcon} onClick={() => window.open(`https://${assignment.url}`, '_blank')} />
                             </div>    
                         </li>

@@ -2,20 +2,30 @@ import {useState, useEffect} from "react";
 import Enrolled_Course_Card from "./Enrolled_Course_Card";
 import "../../styles/Student_Course_List/Student_Course_List.css";
 import Course_Search_Head from '../Search_Courses/Course_Search_Head.jsx';
+import axios from "axios";
 
 function Student_Course_List(){
-    const [programs, setPrograms] = useState([1,3,4,5,6,7]);
+    const [programs, setPrograms] = useState([]);
 
-    // useEffect(() => {
-    //     // Fetch courses from the server when the component mounts
-    //     axios.get('YOUR_SERVER_ENDPOINT_FOR_COURSES')
-    //         .then(response => {
-    //             setPrograms(response.data);
-    //         })
-    //         .catch(error => {
-    //             console.error('There was an error!', error);
-    //         });
-    // }, []);
+    useEffect(() => {
+        const fetchResources = async () => {
+            try {
+                const response = await axios.get(
+                    `http://localhost:3000/student/course`, 
+                    {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('token')}`,
+                        },
+                    }
+                );
+                setPrograms(response.data);
+            } catch (error) {
+                console.error("There was an error fetching the courses!", error);
+            }
+        };
+
+        fetchResources();
+    }, []);
 
     return(
         <div className="course-list-container">
