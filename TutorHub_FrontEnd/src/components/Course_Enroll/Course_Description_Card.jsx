@@ -143,7 +143,7 @@ function Course_Description_Card() {
               </div>
             </div>
           )}
-          {activeButton === 'button4' && <Payment_Card />}
+          {activeButton === 'button4' && <Payment_Card program={program}/>}
         </div>
 
         <div className="description-details-container">

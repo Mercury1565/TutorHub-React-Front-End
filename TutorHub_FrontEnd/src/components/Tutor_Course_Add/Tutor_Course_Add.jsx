@@ -164,7 +164,7 @@ function Tutor_Course_Add() {
                     <div>
                         <div className="program-add-input">
                             <p>Payment Methods</p>
-                            {['telebirr', 'safaricom', 'cbe', 'awash'].map((method) => (
+                            {['telebirr', 'mpesa', 'cbe', 'awash'].map((method) => (
                                 <div key={method}>
                                     <label htmlFor={method}>{method}</label>
                                     <input

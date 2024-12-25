@@ -124,14 +124,18 @@
 .payment-button {
   width: 280px;
   height: 60px;
-  background-color: #FFC224;
+  background-color: #ffb700;
   border: none;
   padding: 10px 20px;
   border-radius: 50px;
   cursor: pointer;
-  color: #6D6C80;
+  color: #484489;
   font-size: 25px;
-  font-weight: 600;;
+  font-weight: 600;
+}
+
+.payment-button:hover {
+  background-color: #ffcf33;
 }
 
 .payment-method {

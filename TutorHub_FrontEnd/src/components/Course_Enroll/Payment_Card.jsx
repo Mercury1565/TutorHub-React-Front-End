@@ -3,12 +3,11 @@ import axios from "axios";
 import { telebirr,cbe,mpesa,awash,payment,upload } from "../../assets/assets";
 import { useLocation } from "react-router-dom";
 
-function Payment_Card(){
+function Payment_Card({program}){
     const [uploadedFile, setUploadedFile] = useState(null);
+    const baseUrl = 'http://localhost:3000';
 
-    const location = useLocation();
-    const programId = location.state?.programId;
-    const baseUrl = 'http://localhost:3000/course/handle_payment';
+    console.log(program)
 
 
     const handleFileUpload = (event) => {
@@ -23,21 +22,21 @@ function Payment_Card(){
     
         const formData = new FormData();
         formData.append('receiptFile', uploadedFile);
-        formData.append('courseId', programId.programId)
+        formData.append('courseId', program.programId)
     
         try {
-            const response = await axios.post(baseUrl, formData, {
+            const response = await axios.post(`${baseUrl}/course/handle_payment`, formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data'
                 }
             });
-    
-            console.log(response.data);
+            
+            alert('Payment successful!');
         } 
         
         catch (error) {
-            console.error('Error:', error);
+            alert(`Payment failed. ${error.response.data.message}`);
         }
     }
 
@@ -45,33 +44,31 @@ function Payment_Card(){
         <div className="payment-container">
             <h2>We Accept</h2>
             <div className="payment-methods">
-                <div className="payment-row">
-                    <div className="payment-method">
+                {program.paymentMethods.map((method, index) => (
+                    <div key={index} className="payment-method">
                         <div className="payment-img-container">
-                            <img src={telebirr} alt="Payment Method Logo" />
-                        </div>
-                        <div className="payment-account-container">
-                            <div className="payment-logo-container">
-                                <img src={payment} alt="Payment Method Logo" />
-                            </div>
-                            <p>+2519000000</p>
-                        </div>
-                    </div>
+                            <img src={
+                                method.method === 'telebirr' ? telebirr : 
+                                method.method === 'cbe' ? cbe : 
+                                method.method === 'awash' ? awash : 
+                                method.method === 'mpesa' ? mpesa : ''
 
-                    <div className="payment-method">
-                        <div className="payment-img-container">
-                            <img src={mpesa} alt="Payment Method Logo" />
+                                } alt={`${method.method} Logo`} />
                         </div>
                         <div className="payment-account-container">
                             <div className="payment-logo-container">
                                 <img src={payment} alt="Payment Method Logo" />
                             </div>
-                            <p>+2519000000</p>
+                            <p>{method.number}</p>
                         </div>
                     </div>
+                ))}
+                <div className="payment-row">
+                    
+
                 </div>
 
-                <div className="payment-row">
+                {/* <div className="payment-row">
                     <div className="payment-method">
                         <div className="payment-img-container">
                             <img src={awash} alt="Payment Method Logo" />
@@ -95,7 +92,7 @@ function Payment_Card(){
                             <p>10000010101010</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
 
             <div className="upload-receipt">
