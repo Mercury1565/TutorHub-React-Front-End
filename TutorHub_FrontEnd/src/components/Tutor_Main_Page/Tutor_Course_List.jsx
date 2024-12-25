@@ -4,12 +4,14 @@ import "../../styles/Student_Course_List/Student_Course_List.css";
 import Course_Search_Head from '../Search_Courses/Course_Search_Head.jsx';
 import axios from "axios";
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 function Tutor_Course_List(){
     const [programs, setPrograms] = useState([]);
 
     useEffect(() => {
         axios.get(
-            'http://localhost:3000/course/',
+            `${baseUrl}course/`,
             {
                 headers: {
                     'Content-Type': 'application/json',

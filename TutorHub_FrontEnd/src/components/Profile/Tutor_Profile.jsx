@@ -4,6 +4,8 @@ import Tutor_Profile_Card from './Tutor_Profile_Card'
 import Profile_Edit from './Profile_Edit'
 import axios from 'axios'
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 const Tutor_Profile = () => {
     const [name, setName] = useState('Robert Fox')
     const [email, setEmail] = useState('info@gmai.com')
@@ -29,7 +31,7 @@ const Tutor_Profile = () => {
         const fetchProfile = async () => {
             try {
                 const response = await axios.get(
-                    'http://localhost:3000/tutor',
+                    `${baseUrl}tutor`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem(

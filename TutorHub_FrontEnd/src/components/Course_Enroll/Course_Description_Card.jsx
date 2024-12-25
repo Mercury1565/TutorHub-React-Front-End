@@ -2,12 +2,8 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../../styles/Course_Enroll/Course_Description_Card.css';
 import axios from 'axios';
-
 import { buttonLeft, buttonRight } from '../../assets/assets.js';
-
 import Star from '../../assets/star.png';
-import course_img_placeholder from '../../assets/error.png';
-
 import OverView_Card from './Overview_Card';
 import About_Tutor_Card from './About_Tutor_Card';
 import Review_Card from './Review_Card.jsx';
@@ -15,7 +11,7 @@ import Payment_Card from './Payment_Card.jsx';
 import Details_Card from './Details_Card.jsx';
 import Course_Search_Head from '../Search_Courses/Course_Search_Head.jsx';
 
-const baseUrl = 'http://localhost:3000/course/';
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 function Course_Description_Card() {
   const location = useLocation();
@@ -28,7 +24,7 @@ function Course_Description_Card() {
   useEffect(() => {
     const fetchCourseReviews = async () => {
       try {
-        const url = `${baseUrl}${program.program}/comments`;
+        const url = `${baseUrl}course/${program.program}/comments`;
         const response = await axios.get(url);
 
         setReviewId(response.data);

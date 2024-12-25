@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { downloadIcon } from "../../assets/assets";
 import axios from 'axios';
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 function Resources({programId}){
     const [textBooks, setTextBooks] = useState([]);
     const [sampleExams, setSampleExams] = useState([]);
@@ -22,7 +24,7 @@ function Resources({programId}){
     const handleTextBookShare = async() => {
         try {
             const response = await axios.post(
-                `http://localhost:3000/course/${programId}/resources`, 
+                `${baseUrl}course/${programId}/resources`, 
                 {
                     type: 'book',
                     ...newTextBook
@@ -57,7 +59,7 @@ function Resources({programId}){
     const handleSampleExamShare = async () => {
         try {
             const response = await axios.post(
-                `http://localhost:3000/course/${programId}/resources`, 
+                `${baseUrl}course/${programId}/resources`, 
                 {
                     type: 'sample_exam',
                     ...newSampleExam
@@ -90,7 +92,7 @@ function Resources({programId}){
     const handleVideoShare = async() => {
         try {
             const response = await axios.post(
-                `http://localhost:3000/course/${programId}/resources`, 
+                `${baseUrl}course/${programId}/resources`, 
                 {
                     type: 'video',
                     ...newVideo
@@ -122,7 +124,7 @@ function Resources({programId}){
         const fetchResources = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/course/${programId}/resources`, 
+                    `${baseUrl}course/${programId}/resources`, 
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`,

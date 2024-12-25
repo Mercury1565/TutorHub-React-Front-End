@@ -5,9 +5,11 @@ import '../../styles/Login_Signup.css'
 import { upload } from '../../assets/assets'
 import axios from 'axios'
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 export const Profile_Edit = ({
     setEditMode,
-
+    
     name,
     email,
     phone,
@@ -16,7 +18,7 @@ export const Profile_Edit = ({
     shortDescription,
     skill,
     socialMedia,
-
+    
     setPhone,
     setBio,
     setProfilePic,
@@ -51,7 +53,7 @@ export const Profile_Edit = ({
     const handleProfileChange = async () => {
         try {
             const response = await axios.patch(
-                'http://localhost:3000/tutor/update-profile',
+                `${baseUrl}tutor/update-profile`,
                 {
                     bio: tempBio,
                     phoneNumber: tempPhone,

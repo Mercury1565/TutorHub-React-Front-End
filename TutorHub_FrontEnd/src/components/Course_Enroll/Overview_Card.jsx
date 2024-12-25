@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-const baseUrl = 'http://localhost:3000/course/';
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 function OverView_Card() {
   const location = useLocation();
@@ -15,7 +15,7 @@ function OverView_Card() {
   useEffect(() => {
     const fetchCourseOverView = async () => {
       try {
-        const response = await axios.get(`${baseUrl}${programId.programId}`);
+        const response = await axios.get(`${baseUrl}course/${programId.programId}`);
         setCourseOverview(response.data.description);
       } catch (error) {
         console.error('Failed to fetch course overview:', error);

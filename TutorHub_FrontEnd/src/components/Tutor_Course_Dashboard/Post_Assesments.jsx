@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { linkIcon } from "../../assets/assets";
 import axios from "axios";
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 function Assesments({programId}){
     const [exams, setExams] = useState([]);
     const [assignments, setAssignments] = useState([]);
@@ -21,7 +23,7 @@ function Assesments({programId}){
     const handleExamShare = async() => {
         try {
             const response = await axios.post(
-                `http://localhost:3000/assessment`, 
+                `${baseUrl}assessment`, 
                 {
                     type: 'exam',
                     courseId: programId,
@@ -55,7 +57,7 @@ function Assesments({programId}){
     const handleAssignmentShare = async() => {
         try {
             const response = await axios.post(
-                `http://localhost:3000/assessment`, 
+                `${baseUrl}assessment`, 
                 {
                     type: 'assignment',
                     courseId: programId,
@@ -85,7 +87,7 @@ function Assesments({programId}){
         const fetchResources = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/assessment/${programId}`, 
+                    `${baseUrl}assessment/${programId}`, 
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`,

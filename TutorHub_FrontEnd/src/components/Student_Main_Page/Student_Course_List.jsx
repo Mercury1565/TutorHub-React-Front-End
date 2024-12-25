@@ -4,6 +4,8 @@ import "../../styles/Student_Course_List/Student_Course_List.css";
 import Course_Search_Head from '../Search_Courses/Course_Search_Head.jsx';
 import axios from "axios";
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 function Student_Course_List(){
     const [programs, setPrograms] = useState([]);
 
@@ -11,7 +13,7 @@ function Student_Course_List(){
         const fetchResources = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/student/course`, 
+                    `${baseUrl}student/course`, 
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`,

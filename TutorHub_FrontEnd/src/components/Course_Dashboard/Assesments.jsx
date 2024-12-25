@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { linkIcon } from "../../assets/assets";
 import axios from "axios";
 
+const baseUrl = "http://localhost:3000/";
+
 function Assesments({ programId }){
     const [exams, setExams] = useState([]);
     const [assignments, setAssignments] = useState([]);
@@ -10,7 +12,7 @@ function Assesments({ programId }){
         const fetchResources = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/assessment/${programId.id}`, 
+                    `${baseUrl}assessment/${programId.id}`, 
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem('token')}`,

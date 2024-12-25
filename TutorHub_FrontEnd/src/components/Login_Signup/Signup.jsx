@@ -1,14 +1,12 @@
-import { Link, useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import '../../styles/Login_Signup.css';
-import { googleIcon } from '../../assets/assets.js';
 import axios from 'axios';
 
-export const Signup = ({ setUserUserType }) => {
-  const navigate_to = useNavigate();
-  const [userType, setUserType] = useState('')
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
+export const Signup = ({ setUserUserType }) => {
+  const [userType, setUserType] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
@@ -23,7 +21,7 @@ export const Signup = ({ setUserUserType }) => {
     console.log({ email, password, firstName, lastName, userName });
     try {
       const response = await axios.post(
-        `http://localhost:3000/user/create-Account`,
+        `${baseUrl}user/create-Account`,
         {
           firstName,
           lastName,

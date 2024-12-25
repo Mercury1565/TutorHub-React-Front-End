@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import '../../styles/Search_Courses/Course_Card.css';
 
 import Star from '../../assets/star.png';
-import course_img_placeholder from '../../assets/error.png';
 
 function Course_Card({ programId }) {
   const navigate = useNavigate();

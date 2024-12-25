@@ -5,6 +5,8 @@ import '../../styles/Login_Signup.css';
 import { googleIcon } from '../../assets/assets.js';
 import axios from 'axios';
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 export const Login = ({setUserUserType }) => {
   const navigate_to = useNavigate();
   const [userType, setUserType] = useState('')
@@ -19,7 +21,7 @@ export const Login = ({setUserUserType }) => {
   const handleSignIn = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/user/login`,
+        `${baseUrl}user/login`,
         {
           email,
           password,

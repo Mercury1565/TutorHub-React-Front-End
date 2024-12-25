@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 function ApproveRequests({programId}){
     const [requests, setRequests] = useState([]);
 
@@ -8,7 +10,7 @@ function ApproveRequests({programId}){
         const fetchRequests = async () => {
             try {
                 const response = await axios.get(
-                    `http://localhost:3000/course/pending_enrollment_request/${programId}`,
+                    `${baseUrl}course/pending_enrollment_request/${programId}`,
                     {
                         headers: {
                             'Content-Type': 'application/json',
@@ -30,7 +32,7 @@ function ApproveRequests({programId}){
     const handleFileDownload = async (request) => {
         try {
             const response = await axios.get(
-                `http://localhost:3000/course/get_receipt/${request.courseId}/${request.user.id}`, 
+                `${baseUrl}course/get_receipt/${request.courseId}/${request.user.id}`, 
                 {
                     responseType: 'blob',
                     headers: {
@@ -56,7 +58,7 @@ function ApproveRequests({programId}){
     const handleApprove = async (request) => {
         try {
             const response = await axios.post(
-                `http://localhost:3000/course/approve_enrollment_request/${request.courseId}/${request.user.id}`,
+                `${baseUrl}course/approve_enrollment_request/${request.courseId}/${request.user.id}`,
                 {},
                 {
                     headers: {

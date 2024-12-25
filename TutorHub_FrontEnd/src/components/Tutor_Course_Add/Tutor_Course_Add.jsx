@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import '../../styles/Tutor_Course_Add/Tutor_Course_Add.css'
-import { upload } from '../../assets/assets'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 function Tutor_Course_Add() {
     const navigate_to = useNavigate();
@@ -21,7 +22,7 @@ function Tutor_Course_Add() {
 
         try {
             const response = await axios.post(
-                'http://localhost:3000/course/',
+                `${baseUrl}course/`,
                 {
                     title,
                     subject,

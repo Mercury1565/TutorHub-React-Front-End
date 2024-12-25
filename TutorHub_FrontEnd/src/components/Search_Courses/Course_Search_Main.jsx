@@ -9,7 +9,7 @@ import Filter_Component from './Filter_Component';
 import Course_Search_Head from './Course_Search_Head';
 import Search_Bar from './Search_Bar';
 
-const baseUrl = 'http://localhost:3000/course/filter?';
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 function Course_Search_Main() {
   const [selectedRatingChange, setSelectedRatingChange] = useState();
@@ -20,7 +20,7 @@ function Course_Search_Main() {
 
   const fetchCourses = async () => {
     try {
-      let url = baseUrl;
+      let url = baseUrl + 'course/filter?';
       if (searchTitle != '') {
         url = baseUrl + `title=${searchTitle}`;
       }

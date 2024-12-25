@@ -1,14 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 import { telebirr,cbe,mpesa,awash,payment,upload } from "../../assets/assets";
-import { useLocation } from "react-router-dom";
+
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 function Payment_Card({program}){
     const [uploadedFile, setUploadedFile] = useState(null);
-    const baseUrl = 'http://localhost:3000';
-
-    console.log(program)
-
 
     const handleFileUpload = (event) => {
         setUploadedFile(event.target.files[0]);
@@ -25,7 +22,7 @@ function Payment_Card({program}){
         formData.append('courseId', program.programId)
     
         try {
-            const response = await axios.post(`${baseUrl}/course/handle_payment`, formData, {
+            const response = await axios.post(`${baseUrl}course/handle_payment`, formData, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'multipart/form-data'
@@ -63,36 +60,6 @@ function Payment_Card({program}){
                         </div>
                     </div>
                 ))}
-                <div className="payment-row">
-                    
-
-                </div>
-
-                {/* <div className="payment-row">
-                    <div className="payment-method">
-                        <div className="payment-img-container">
-                            <img src={awash} alt="Payment Method Logo" />
-                        </div>
-                        <div className="payment-account-container">
-                            <div className="payment-logo-container">
-                                <img src={payment} alt="Payment Method Logo" />
-                            </div>
-                            <p>1000028282828</p>
-                        </div>
-                    </div>
-
-                    <div className="payment-method">
-                        <div className="payment-img-container">
-                            <img src={cbe} alt="Payment Method Logo" />
-                        </div>
-                        <div className="payment-account-container">
-                            <div className="payment-logo-container">
-                                <img src={payment} alt="Payment Method Logo" />
-                            </div>
-                            <p>10000010101010</p>
-                        </div>
-                    </div>
-                </div> */}
             </div>
 
             <div className="upload-receipt">
