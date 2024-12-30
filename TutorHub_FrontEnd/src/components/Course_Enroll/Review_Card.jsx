@@ -1,14 +1,10 @@
 import '../../styles/Course_Enroll/Course_Description_body.css';
 import { starIcon, blankStarIcon, quoteIcon } from '../../assets/assets.js';
-import { useState, useEffect } from 'react';
 
-import { useLocation } from 'react-router-dom';
-import axios from 'axios';
-
-const Review_Card = () => {
-  const [reviewName, setReviewName] = useState('Sample Reviewer');
-  const [reviewRating, setReviewRating] = useState(2);
-  const [reviewText, setReviewText] = useState('This is a sample review ');
+function Review_Card({review}) {
+  const reviewName = review ? review.student.firstName: '';
+  const reviewRating = review ? review.rating: 0;
+  const reviewText = review ? review.text: '';
 
   return (
     <div className="review-card">
@@ -17,7 +13,7 @@ const Review_Card = () => {
           <div>
             <div className="review-card-profile-name">{reviewName}</div>
             <div className="review-card-profile-rating">
-              {[...Array(5)].map((star, index) => {
+              {[...Array(5)].map((_, index) => {
                 return (
                   <img
                     key={index}

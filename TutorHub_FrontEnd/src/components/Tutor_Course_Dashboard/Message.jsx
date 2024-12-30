@@ -1,37 +1,93 @@
-import { useState } from 'react';
-// import axios from 'axios';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-function Contact_Tutor(){
-    const [messages, setMessages] = useState([
-        { id: 1, studentId:1, studentName: 'John Doe', text: 'Hello, I have a question about the homework.' },
-        { id: 2, studentId:2, studentName: 'Jane Smith', text: 'Can you explain the last lecture again?' },
-        { id: 3, studentId:3, studentName: 'Bob Johnson', text: 'I need help with an assignment.' },
-    ]);
-    const [students, setStudents] = useState([
-        { id: 1, name: 'Hermon'},
-        { id: 2, name: 'Eba'},
-        { id: 3, name: 'Johna'},
-    ])
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
+function Contact_Tutor({programId}){
+    const [conversations, setConversation] = useState([]);
+    const [students, setStudents] = useState([])
 
     const [replyToId, setReplyToId] = useState(null);
     const [reply, setReply] = useState('');
     const [selectedStudentId, setSelectedStudentId] = useState(1);
     const [message, setMessage] = useState('');
 
+    useEffect(() => {
+        const fetchConversation = async () => {
+            try {
+                const r1 = await axios.get(
+                    `${baseUrl}course/get_messages/${programId}`,
+                    {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer ${localStorage.getItem(
+                                'token'
+                            )}`,
+                        },
+                    }
+                );
+
+                const r2 = await axios.get(
+                    `${baseUrl}course/students/${programId}`,
+                    {
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer ${localStorage.getItem(
+                                'token'
+                            )}`,
+                        },
+                    }
+                );
+
+                setConversation(r1.data);
+                setStudents(r2.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchConversation();
+    }, []);
 
     const handleSendMessage = async () => {
         try {
-            const response = await axios.post('API', { message, selectedStudentId });
+            const response = await axios.post(
+                `${baseUrl}course/send_message`,
+                { 
+                    message, 
+                    courseId: programId,
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                }
+            );
+            setMessage('');
+            alert('Message sent susccessfully');
             console.log(response.data);
         } catch (error) {
             console.error(error);
         }
     };
     
-    const handleSendReply = async () => {
+    const handleSendReply = async (e) => {
+        e.preventDefault();
         try {
-            const response = await axios.post('API', { reply, replyToId });
-            console.log(response.data);
+            const response = await axios.post(
+                `${baseUrl}course/send_reply`,
+                { 
+                    message: reply,
+                    parentId: replyToId,
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    },
+                }
+            );
             setReply('');
             setReplyToId(null);
         } catch (error) {
@@ -44,12 +100,12 @@ function Contact_Tutor(){
         <div className="course-page-main-content">
             <div className="send-message-container">
                 <h2>Messages</h2>
-                {messages.map((message) => (
+                {conversations.map((message) => (
                     <div className='single-message-container' key={message.id}>
-                        <h3>{message.studentName}</h3>
-                        <p>{message.text}</p>
+                        <h3>{message.sender.firstName + ' ' + message.sender.lastName}</h3>
+                        <p>{message.message}</p>
                         {replyToId !== message.id && (
-                            <button onClick={() => setReplyToId(message.studentId)}>Reply</button>
+                            <button onClick={() => setReplyToId(message.id)}>Reply</button>
                         )}
 
                         {replyToId === message.id && (
@@ -72,7 +128,7 @@ function Contact_Tutor(){
                 <select className='student-select' value={selectedStudentId} onChange={(e) => setSelectedStudentId(e.target.value)}>
                     {students.map((student) => (
                         <option key={student.id} value={student.id}>
-                            {student.name}
+                            {student.firstName + ' ' + student.lastName}
                         </option>
                     ))}
                 </select>

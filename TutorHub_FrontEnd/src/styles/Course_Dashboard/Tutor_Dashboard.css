@@ -22,7 +22,7 @@
     color: #6D6C80;
     font-weight: 500;
     padding: 20px;
-    margin: 10px;
+    margin: 5px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -183,9 +183,8 @@ ul{
   .resource-list-item{
     width: 80%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
     margin: 10px;
     border-bottom: 1px solid #ddd;
   }
@@ -197,6 +196,13 @@ ul{
 
   .resource-list-item p{
     color: #6d6c80;
+  }
+
+  .resource-list-item-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
   }
 
 /* END OF RESOURCES AND ASSESMENTS */
@@ -221,6 +227,10 @@ ul{
   
   .review-nav-but{
     cursor: pointer;
+  }
+
+  .review-nav-but:hover{
+    color: #5751E1;
   }
 
   .review-rate-star{

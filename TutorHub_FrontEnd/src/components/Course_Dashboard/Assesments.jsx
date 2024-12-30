@@ -38,7 +38,7 @@ function Assesments({ programId }){
                 <ul>
                     {exams.map((exam, index) => (
                         <li key={index}>
-                            <div className="resource-list-item">
+                            <div className="resource-list-item_resource">
                                 <p>{exam.title}</p>
                                 <img src={linkIcon} onClick={() => window.open(`https://${exam.url}`, '_blank')} />
                             </div>    
@@ -52,7 +52,7 @@ function Assesments({ programId }){
                 <ul>
                     {assignments.map((assignment, index) => (
                         <li key={index}>
-                            <div className="resource-list-item">
+                            <div className="resource-list-item_resource">
                                 <p>{assignment.title}</p>
                                 <img src={linkIcon} onClick={() => window.open(`https://${assignment.url}`, '_blank')} />
                             </div>    

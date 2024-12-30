@@ -13,7 +13,7 @@ function Resources({programId}){
                 <ul>
                     {textBooks.map((textBook, index) => (
                         <li key={index}>
-                            <div className="resource-list-item">
+                            <div className="resource-list-item_resource">
                                 <p>{textBook.title}</p>
                                 <img src={downloadIcon} onClick={() => window.open(`https://${textBook.url}`, '_blank')} />
                             </div>    
@@ -27,7 +27,7 @@ function Resources({programId}){
                 <ul>
                     {sampleExams.map((sampleExam, index) => (
                         <li key={index}>
-                            <div className="resource-list-item">
+                            <div className="resource-list-item_resource">
                                 <p>{sampleExam.title}</p>
                                 <img src={downloadIcon} onClick={() => window.open(`https://${sampleExam.url}`, '_blank')} />
                             </div>    
@@ -41,7 +41,7 @@ function Resources({programId}){
                 <ul>
                     {videoResources.map((video, index) => (
                         <li key={index}>
-                            <div className="resource-list-item">
+                            <div className="resource-list-item_resource">
                                 <p>{video.title}</p>
                                 <img src={downloadIcon} onClick={() => window.open(`https://${video.url}`, '_blank')} />
                             </div>    
