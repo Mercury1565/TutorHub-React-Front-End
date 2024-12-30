@@ -19,19 +19,31 @@ function Course_Description_Card() {
 
   const [activeButton, setActiveButton] = useState('button1');
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
-  const [reviewId, setReviewId] = useState([]);
+  const [reviews, setReviews] = useState([]);
+
+  (program); 
 
   useEffect(() => {
-    const fetchCourseReviews = async () => {
-      try {
-        const url = `${baseUrl}course/${program.program}/comments`;
-        const response = await axios.get(url);
-
-        setReviewId(response.data);
-      } catch (e) {}
+    const fetchRequests = async () => {
+        try {
+            const response = await axios.get(
+                `${baseUrl}course/get_Review/${program.programId}`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${localStorage.getItem(
+                            'token'
+                        )}`,
+                    },
+                }
+            );
+            setReviews(response.data);
+        } catch (error) {
+            console.error('There was an error fetching reviews!', error);
+        }
     };
-    fetchCourseReviews();
-  }, [program]);
+    fetchRequests();
+  }, []);
 
   const handleClick = (buttonId) => {
     setActiveButton(buttonId);
@@ -39,15 +51,17 @@ function Course_Description_Card() {
 
   const handleLeftClick = () => {
     setCurrentReviewIndex((oldIndex) =>
-      oldIndex > 0 ? oldIndex - 1 : reviewId.length - 1
+      oldIndex > 0 ? oldIndex - 1 : reviews.length - 1
     );
   };
 
   const handleRightClick = () => {
     setCurrentReviewIndex((oldIndex) =>
-      oldIndex < reviewId.length - 1 ? oldIndex + 1 : 0
+      oldIndex < reviews.length - 1 ? oldIndex + 1 : 0
     );
   };
+
+  (reviews)
 
 
   return (
@@ -123,7 +137,7 @@ function Course_Description_Card() {
           {activeButton === 'button3' && (
             <div className="rating-div">
               <div className="rating-cards-container">
-                <Review_Card reviewID={reviewId[currentReviewIndex]} />
+                <Review_Card review={reviews[currentReviewIndex]} />
               </div>
               <div className="rating-nav-buttons">
                 <img

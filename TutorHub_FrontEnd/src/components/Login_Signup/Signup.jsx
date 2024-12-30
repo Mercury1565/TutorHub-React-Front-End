@@ -6,19 +6,25 @@ import axios from 'axios';
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
 export const Signup = ({ setUserUserType }) => {
-  const [userType, setUserType] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [userName, setUserName] = useState('');
-
-  const handleUserTypeChange = (event) => {
-    setUserType(event.target.value);
-  };
+  const navigate = useNavigate();
 
   const handleSignUp = async () => {
-    console.log({ email, password, firstName, lastName, userName });
+    if (!email || !password || !firstName || !lastName || !userName) {
+      alert('Please fill all the fields');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+    
     try {
       const response = await axios.post(
         `${baseUrl}user/create-Account`,
@@ -30,9 +36,10 @@ export const Signup = ({ setUserUserType }) => {
           password,
         }
       );
-      console.log(response.data);
+
+      navigate('/login');
     } catch (error) {
-      console.error('Error during sign-up:', error);
+      alert('Error in creating account');
     }
   };
 
@@ -97,27 +104,14 @@ export const Signup = ({ setUserUserType }) => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-        </div>
-        <div className="remember">
-          <div className="user-type">
-            <label>
-              <input
-                type="radio"
-                value="student"
-                checked={userType === 'student'}
-                onChange={handleUserTypeChange}
-              />
-              Student
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="tutor"
-                checked={userType === 'tutor'}
-                onChange={handleUserTypeChange}
-              />
-              Tutor
-            </label>
+          <div className="login-input">
+            <p>Confirm Password</p>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
           </div>
         </div>
 

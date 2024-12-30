@@ -55,6 +55,9 @@ const Filter_Component = ({
               {grade}
             </option>
           ))}
+          <option value="" disabled>
+          -
+          </option>
         </select>
       </div>
 
@@ -69,62 +72,9 @@ const Filter_Component = ({
         />
       </div>
 
-      {/* <div className="filter-section">
-        <h3>Subject</h3>
-
-        {selectedSubjects
-          .slice(0, showMoreSubjects ? selectedSubjects.length : 6)
-          .map((subject, index) => (
-            <div className="filter-item" key={index}>
-              <input
-                type="checkbox"
-                id={subject.name}
-                name={subject.name}
-                onChange={(event) =>
-                  handleSelectSubject(subject.name, event.target.checked)
-                }
-              />
-              <label>{subject.name}</label>
-            </div>
-          ))}
-
-        <button
-          className="show-more-button"
-          onClick={() => setShowMoreSubjects(!showMoreSubjects)}
-        >
-          {showMoreSubjects ? 'Show Less' : 'Show More'}
-        </button>
-      </div> */}
-
       <div className="filter-section">
         <h3>Rating</h3>
-        {/* <div className="filter-item">
-          {[...Array(5)].map((_, index) => {
-            const ratingValue = index + 1;
-            return (
-              <label key={ratingValue}>
-                <input
-                  type="radio"
-                  name="rating"
-                  value={ratingValue}
-                  onChange={() => handleSelectRating(ratingValue)}
-                  checked={selectedRating === ratingValue}
-                />
-                <div className="stars">
-                  {[...Array(ratingValue)].map((_, starIndex) => (
-                    <img
-                      key={starIndex}
-                      src={star}
-                      alt={`${ratingValue} star`}
-                      className="star-icon"
-                    />
-                  ))}
-                </div>
-              </label>
-            );
-          })}
-        </div> */}
-
+        
         <div className="filter-item">
           <input
             type="radio"

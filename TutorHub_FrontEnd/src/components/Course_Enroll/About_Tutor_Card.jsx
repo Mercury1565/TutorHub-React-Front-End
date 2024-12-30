@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
 function About_Tutor_Card() {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const location = useLocation();
   const programId = location.state?.programId;
@@ -14,8 +14,16 @@ function About_Tutor_Card() {
   useEffect(() => {
     const fetchCourseOverView = async () => {
       try {
-        const response = await axios.get(`${baseUrl}tutor/${programId.tutorId}`);
-        setAboutTutor(response.data.shortDescription);
+        const response = await axios.get(
+          `${baseUrl}tutor/${programId.tutorId}`,
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+              'Content-Type': 'multipart/form-data'
+            }
+          }
+        );
+        setAboutTutor(response.data.bio);
       } catch (error) {
         console.error('Failed to fetch course overview:', error);
       }

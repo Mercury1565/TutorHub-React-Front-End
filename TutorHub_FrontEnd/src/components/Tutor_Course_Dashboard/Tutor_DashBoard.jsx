@@ -10,6 +10,7 @@ import Post_Assesments from './Post_Assesments.jsx';
 import Message from './Message.jsx';
 import ApproveRequests from './Approve_Requests.jsx';
 import Course_Review from './See_Review.jsx';
+import ScheduleClass from './schedule_class.jsx';
 
 function Tutor_DashBoard(){
     const location = useLocation();
@@ -52,7 +53,7 @@ function Tutor_DashBoard(){
                 className={`course-page-sidebar-item ${activeButton === "button4" ? "course-page-sidebar-item active" : ""}`}
                 onClick={() => handleClick("button4")}
                 >
-                Reviews
+                Schedule Class
             </button>
             <button 
                 id='button5'
@@ -73,7 +74,7 @@ function Tutor_DashBoard(){
           {activeButton === "button1" && <Tutor_Greeting program={program}/>}
           {activeButton === "button2" && <Post_Resources programId={program.id}/>}
           {activeButton === "button3" && <Post_Assesments programId={program.id}/>}
-          {activeButton === "button4" && <Course_Review programId={program.id}/>}
+          {activeButton === "button4" && <ScheduleClass programId={program.id}/>}
           {activeButton === "button5" && <Message programId={program.id}/>}
           {activeButton === "button6" && <ApproveRequests programId={program.id}/>}
           

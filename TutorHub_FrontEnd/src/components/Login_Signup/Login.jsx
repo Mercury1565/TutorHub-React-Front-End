@@ -19,6 +19,15 @@ export const Login = ({setUserUserType }) => {
   };
 
   const handleSignIn = async () => {
+    if (!email || !password) {
+      alert('Please fill all the fields');
+      return;
+    }
+
+    if (userType === '') {
+      alert('Please select role to continue');
+      return;
+    }
     try {
       const response = await axios.post(
         `${baseUrl}user/login`,
@@ -37,35 +46,15 @@ export const Login = ({setUserUserType }) => {
         localStorage.setItem('userType', 'tutor');
         setUserUserType('tutor');
         navigate_to('/tutor');
-      }
-      console.log(response.data);
+      } 
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleGoogleSignIn = () => {
-    console.log('abcd');
-  };
-
   return (
     <div className="login_container">
       <div className="middle">
-        <div className="continue-with">
-          <button className="google-button" onClick={handleGoogleSignIn}>
-            <div className="icon-container">
-              <img className="google-icon" src={googleIcon} alt="google" />
-            </div>
-            Continue with Google
-          </button>
-        </div>
-
-        <div className="or">
-          <div></div>
-          <p>or</p>
-          <div></div>
-        </div>
-
         <div className="inputs">
           <div className="login-input">
             <div>

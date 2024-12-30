@@ -102,7 +102,7 @@ function Header({user}){
                         {dropdownOpen && 
                             <div className="dropdown-menu">
                                 <button
-                                    onClick={() => {navigate_profile('/tutor/profile')}}
+                                    onClick={() => {navigate_profile('/profile')}}
                                 >
                                     View Profile
                                 </button>

@@ -6,6 +6,8 @@ function Review_Card({review}) {
   const reviewRating = review ? review.rating: 0;
   const reviewText = review ? review.text: '';
 
+  (review);
+
   return (
     <div className="review-card">
       <div className="review-card-profile">

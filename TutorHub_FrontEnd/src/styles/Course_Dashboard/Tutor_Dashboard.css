@@ -9,8 +9,8 @@
   
   .course-page-sidebar {
     margin: 40px;
-    width: 200px;
-    padding-right: 50px;
+    width: 235px;
+    padding-right: 20px;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@
 /* START OF COMMON FOR BODY */
 .course-page-main-content {
     padding: 20px;
-    width: 40%;
+    width: 70%;
   }
 /* END OF COMMON FOR BODY */
 
@@ -73,6 +73,7 @@
   }
   
   .greeting-program-info {
+    width: 100%;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -104,6 +105,7 @@
   
   .greeting-next-session {
     margin-left: -20px;
+    margin-right: -200px;
     display: flex;
     flex-direction: row;
   }
@@ -210,12 +212,12 @@ ul{
 /* START OF REVIEW */
 
 .course-review-container{
+  width: 40%;
     display: flex;
     justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
     border-bottom: 1px solid #ddd;
 }
 

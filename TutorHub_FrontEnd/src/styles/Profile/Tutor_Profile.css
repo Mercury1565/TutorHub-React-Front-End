@@ -78,6 +78,10 @@
     color: #6D6C80;
   }
 
+  .description-container-card li{
+    color: #6D6C80;
+  }
+
   .profile-edit-container{
     display: flex;
     justify-content: space-between;

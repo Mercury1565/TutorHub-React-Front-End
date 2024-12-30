@@ -15,7 +15,17 @@ function OverView_Card() {
   useEffect(() => {
     const fetchCourseOverView = async () => {
       try {
-        const response = await axios.get(`${baseUrl}course/${programId.programId}`);
+        const response = await axios.get(
+          `${baseUrl}course/${programId.programId}`,
+          {
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${localStorage.getItem(
+                    'token'
+                  )}`,
+              },
+          }
+        );
         setCourseOverview(response.data.description);
       } catch (error) {
         console.error('Failed to fetch course overview:', error);

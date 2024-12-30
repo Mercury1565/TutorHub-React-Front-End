@@ -107,7 +107,7 @@ function Resources({programId}){
                 }
             );
 
-            console.log(response.status);
+            (response.status);
             if (response.status === 201) {
                 setVideoResources([...videoResources, newVideo]);
                 setNewVideo({ title: '', url: '' });

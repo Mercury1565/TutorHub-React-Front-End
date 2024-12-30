@@ -91,13 +91,19 @@ function Tutor_Profile_Card({ profile, setEditMode }) {
 
                 <div className="description-container-card">
                     <h3>Biography</h3>
-                    <p>{profile.bio}</p>
+                    <p>{profile.shortDescription}</p>
                 </div>
 
-                <div className="description-container-card">
-                    <h3>Skills</h3>
-                    <p>{profile.skill}</p>
-                </div>
+                {profile.skill && profile.skill.length > 0 && (
+                    <div className="description-container-card">
+                        <h3>Skills</h3>
+                        <ul>
+                            {profile.skill.map((skill, index) => (
+                                <li key={index}>{skill}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
             </div>
         </div>
     )

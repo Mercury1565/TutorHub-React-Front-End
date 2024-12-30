@@ -66,7 +66,7 @@ function Contact_Tutor({programId}){
             );
             setMessage('');
             alert('Message sent susccessfully');
-            console.log(response.data);
+            (response.data);
         } catch (error) {
             console.error(error);
         }

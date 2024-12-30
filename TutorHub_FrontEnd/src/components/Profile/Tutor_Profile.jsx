@@ -6,20 +6,16 @@ import axios from 'axios'
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
-const Tutor_Profile = () => {
+const Profile = () => {
     const [name, setName] = useState('Robert Fox')
     const [email, setEmail] = useState('info@gmai.com')
     const [phone, setPhone] = useState('+123 9500 600')
-    const [bio, setBio] = useState(
-        'Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti bulum a nec odio aea the duru'
-    )
+    const [bio, setBio] = useState()
     const [profilePic, setProfilePic] = useState(
         'https://via.placeholder.com/100'
     )
-    const [shortDescription, setShortDescription] = useState(
-        'I am a professional tutor with 10 years of experience in teaching.'
-    )
-    const [skill, setSkill] = useState('Mathematics, Physics, Chemistry')
+    const [shortDescription, setShortDescription] = useState()
+    const [skill, setSkill] = useState([])
     const [socialMedia, setSocialMedia] = useState({
         twitter: 'a',
         facebook: 'b',
@@ -31,7 +27,7 @@ const Tutor_Profile = () => {
         const fetchProfile = async () => {
             try {
                 const response = await axios.get(
-                    `${baseUrl}tutor`,
+                    `${baseUrl}user/profile`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem(
@@ -39,17 +35,18 @@ const Tutor_Profile = () => {
                             )}`,
                         },
                     }
-                ) // Replace with your API endpoint
+                ) 
+                
                 const profileData = response.data
+
                 console.log(profileData)
 
                 setName(profileData.firstName + ' ' + profileData.lastName)
                 setEmail(profileData.email)
                 setPhone(profileData.phoneNumber)
-                setBio(profileData.bio)
                 setProfilePic(profileData.imageUrl)
                 setShortDescription(profileData.shortDescription)
-                setSkill(profileData.skill)
+                setSkill(profileData.skills)
                 setSocialMedia(
                     profileData.socialMedia || {
                         facebook: '',
@@ -74,7 +71,7 @@ const Tutor_Profile = () => {
         bio: bio,
         profilePic: profilePic,
         shortDescription: shortDescription,
-        skill: skill,
+        skills: skill,
         socialMedia: socialMedia,
     }
 
@@ -112,4 +109,4 @@ const Tutor_Profile = () => {
     )
 }
 
-export default Tutor_Profile
+export default Profile

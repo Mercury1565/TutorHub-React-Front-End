@@ -52,13 +52,14 @@ export const Profile_Edit = ({
 
     const handleProfileChange = async () => {
         try {
-            const response = await axios.patch(
-                `${baseUrl}tutor/update-profile`,
+            const response = await axios.put(
+                `${baseUrl}user/update-profile`,
                 {
-                    bio: tempBio,
+                    firstName: firstName,
+                    lastName: lastName,
                     phoneNumber: tempPhone,
                     shortDescription: tempShortDescription,
-                    skill: tempSkill,
+                    skills: tempSkill,
                     socialMedia: {
                         facebook: tempFacebook,
                         twitter: tempTwitter,
@@ -75,9 +76,11 @@ export const Profile_Edit = ({
                         )}`,
                     },
                 }
-            ) // Replace with your API endpoint
+            ) 
+
+            console.log(response.data)
             const profileData = response.data
-            console.log(profileData)
+            (profileData)
 
             setPhone(profileData.phone)
             setBio(profileData.bio)

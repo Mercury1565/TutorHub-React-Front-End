@@ -42,7 +42,6 @@ function Course_Review({programId}){
     }
 
     return(
-        <div className="course-page-main-content">
             <div className="course-review-container">
                 <div className="review-cards-container">
                     <Review_Card review={reviews[currentReviewIndex]} />
@@ -52,7 +51,6 @@ function Course_Review({programId}){
                     <img src={buttonRight} onClick={handleRightClick} className='review-nav-but'/>
                 </div>
             </div>
-        </div>
 
     );
 }

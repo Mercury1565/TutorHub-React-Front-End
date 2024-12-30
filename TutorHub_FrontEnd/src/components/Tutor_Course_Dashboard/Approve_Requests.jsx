@@ -79,7 +79,7 @@ function ApproveRequests({programId}){
     };
 
     return (
-        <div className='approve-request-container'>
+        <div className='course-page-main-content'>
             {requests.length === 0 ? (
                 <p>No enrollment requests.</p>
             ) : (
